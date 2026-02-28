@@ -1,5 +1,6 @@
 ### Custom ###
 /src/main/resources/application-local.yml
+/tmp/
 
 HELP.md
 target/
