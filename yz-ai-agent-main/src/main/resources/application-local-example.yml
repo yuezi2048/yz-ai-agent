@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.1.15:5432/yu_ai_agent
+    username: ai
+    password: xxxx
+  ai:
+    spring:
+      ai:
+        mcp:
+          client:
+            #            sse:
+            #              connections:
+            #                server1:
+            #                  url: http://localhost:8127
+            stdio:
+              servers-configuration: classpath:mcp-servers.json
+    dashscope:
+      api-key: sk-xxxxxx
+      chat:
+        options:
+          model: qwen-plus
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3
+    vectorstore:
+      pgvector:
+        enabled: false
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 1024
+        max-document-batch-size: 10 # Optional: Maximum number of documents per batch
+# searchApi
+search-api:
+  api-key: xxxxx
