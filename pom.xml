@@ -11,6 +11,7 @@
     <groupId>com.yupi</groupId>
     <artifactId>yu-ai-agent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>yu-ai-agent</name>
     <description>yu-ai-agent</description>
     <url/>
@@ -20,6 +21,9 @@
     <developers>
         <developer/>
     </developers>
+    <modules>
+        <module>yz-ai-agent-main</module>
+    </modules>
     <scm>
         <connection/>
         <developerConnection/>
@@ -29,6 +33,7 @@
     <properties>
         <java.version>21</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,7 +43,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.36</version>
+            <version>1.18.42</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -152,6 +157,17 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-mcp-client</artifactId>
+            <!-- <exclusions> -->
+            <!--     <exclusion> -->
+            <!--         <groupId>org.slf4j</groupId> -->
+            <!--         <artifactId>slf4j-simple</artifactId> -->
+            <!--     </exclusion> -->
+            <!-- </exclusions> -->
+        </dependency>
+
 
     </dependencies>
 
@@ -219,6 +235,7 @@
                         <exclude>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
+                            <version>1.18.42</version>
                         </exclude>
                     </excludes>
                 </configuration>
