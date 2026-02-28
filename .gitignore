@@ -1,6 +1,5 @@
 ### Custom ###
-/src/main/resources/application-local.yml
-/tmp/
+yz-ai-agent-main/src/main/resources/application-local.yml
 
 HELP.md
 target/

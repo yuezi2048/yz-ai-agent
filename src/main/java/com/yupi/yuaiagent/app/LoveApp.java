@@ -13,6 +13,7 @@ import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.memory.MessageWindowChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.model.ChatResponse;
+import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
 import org.springframework.ai.tool.ToolCallback;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.pgvector.PgVectorStore;
@@ -128,6 +129,22 @@ public class LoveApp {
         log.info("content: {}", content);
         return content;
     }
+
+    @Resource
+    private SyncMcpToolCallbackProvider toolCallbackProvider;
+
+    public String doChatWithMcp(String message, String chatId) {
+        ToolCallback[] toolCallbacks = toolCallbackProvider.getToolCallbacks();
+
+        ChatResponse response = chatClient
+                .prompt()
+                .advisors(spec -> spec.param(ChatMemory.CONVERSATION_ID, chatId))
+                // 开启日志，便于观察效果
+                .advisors(new LogAdvisor())
+                .tools(toolCallbackProvider)
+                .call()
+                .chatResponse();
+        return response.getResult().getOutput().getText();
 
 
 }
