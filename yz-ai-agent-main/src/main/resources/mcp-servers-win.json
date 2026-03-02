@@ -1,8 +1,10 @@
 {
   "mcpServers": {
     "yu-image-search-mcp-server": {
-      "command": "java",
+      "command": "cmd",
       "args": [
+        "/c",
+        "java",
         "-Dspring.profile.active=stdio",
         "-Dspring.ai.mcp.server.stdio=true",
         "-Dspring.main.web-application-type=none",

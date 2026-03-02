@@ -3,6 +3,7 @@ package com.yupi.yuaiagent.app;
 import com.yupi.yuaiagent.advisor.LogAdvisor;
 import com.yupi.yuaiagent.rag.LoveAppRagCustomAdvisorFactory;
 import com.yupi.yuaiagent.rag.QueryRewriter;
+import io.modelcontextprotocol.client.McpSyncClient;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
@@ -132,7 +133,7 @@ public class LoveApp {
     }
 
     @Resource
-    private ToolCallbackProvider toolCallbackProvider;
+    private SyncMcpToolCallbackProvider toolCallbackProvider;
 
     /**
      * AI 恋爱报告功能（调用 MCP 服务）
@@ -146,6 +147,7 @@ public class LoveApp {
 
         ChatResponse response = chatClient
                 .prompt()
+                .user(message)
                 .advisors(spec -> spec.param(ChatMemory.CONVERSATION_ID, chatId))
                 // 开启日志，便于观察效果
                 .advisors(new LogAdvisor())
