@@ -7,6 +7,7 @@
         "-Dspring.ai.mcp.server.stdio=true",
         "-Dspring.main.web-application-type=none",
         "-Dlogging.pattern.console=",
+        "-Dspring.main.banner-mode=off",
         "-jar",
         "yu-image-search-mcp-server/target/yu-image-search-mcp-server-0.0.1-SNAPSHOT.jar"
       ],

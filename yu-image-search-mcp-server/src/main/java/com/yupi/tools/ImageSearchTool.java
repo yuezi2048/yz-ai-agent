@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +16,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class ImageSearchTool {
 
     // 你的 Pexels API 密钥（需从官网申请）
@@ -27,7 +29,9 @@ public class ImageSearchTool {
     @Tool(description = "search image from web")
     public String searchImage(@ToolParam(description = "Search query keyword") String query) {
         try {
-            return String.join(",", searchMediumImages(query));
+            String result = String.join(",", searchMediumImages(query));
+            log.info("searchImage: " + result);
+            return result;
         } catch (Exception e) {
             return "Error search image: " + e.getMessage();
         }
