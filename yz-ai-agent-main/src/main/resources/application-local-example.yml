@@ -1,21 +1,21 @@
 spring:
   datasource:
-    url: jdbc:postgresql://192.168.1.15:5432/yu_ai_agent
+    url: jdbc:postgresql://192.168.129.130:5432/yu_ai_agent
     username: ai
-    password: xxxx
+    password: xxx
   ai:
-    spring:
-      ai:
-        mcp:
-          client:
-            #            sse:
-            #              connections:
-            #                server1:
-            #                  url: http://localhost:8127
-            stdio:
-              servers-configuration: classpath:mcp-servers.json
+    mcp:
+      client:
+        #        sse:
+        #          connections:
+        #            server1:
+        #              url: http://localhost:8127
+        stdio:
+          servers-configuration: classpath:mcp-servers-win.json
+        toolcallback:
+          enabled: true
     dashscope:
-      api-key: sk-xxxxxx
+      api-key: sk-xxx
       chat:
         options:
           model: qwen-plus
@@ -32,4 +32,4 @@ spring:
         max-document-batch-size: 10 # Optional: Maximum number of documents per batch
 # searchApi
 search-api:
-  api-key: xxxxx
+  api-key: xxx

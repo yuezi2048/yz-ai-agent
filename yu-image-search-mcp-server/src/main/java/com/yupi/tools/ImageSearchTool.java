@@ -47,6 +47,7 @@ public class ImageSearchTool {
         // 设置请求参数（仅包含query，可根据文档补充page、per_page等参数）
         Map<String, Object> params = new HashMap<>();
         params.put("query", query);
+        params.put("per_page", 5); // 避免出现MCP超过20000ms超时的问题
 
         // 发送 GET 请求
         String response = HttpUtil.createGet(API_URL)

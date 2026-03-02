@@ -23,6 +23,7 @@
             <artifactId>spring-ai-starter-mcp-client</artifactId>
         </dependency>
 
+        <!-- 基于 Spring MVC 的 SSE（服务器发送事件）服务器传输，以及可选的 STDIO 传输 -->
         <dependency>
             <groupId>org.springframework.ai</groupId>
             <artifactId>spring-ai-starter-mcp-server-webmvc</artifactId>
