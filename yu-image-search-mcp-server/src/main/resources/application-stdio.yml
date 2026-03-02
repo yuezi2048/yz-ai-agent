@@ -12,9 +12,6 @@ spring:
           resource: true
           prompt: true
           completion: true
-        # sse properties
-        sse-message-endpoint: /mcp/messages
-        keep-alive-interval: 30s
 tools:
   image:
     api-key: FmZJNmX8QuLLGZLCk11UuYAplUgDFXkni0orLoEpf4LOfs4DcsNFk512

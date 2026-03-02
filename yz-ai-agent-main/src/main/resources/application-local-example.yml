@@ -1,4 +1,10 @@
 spring:
+  #  logging:
+  #    level:
+  #      io.modelcontextprotocol: DEBUG
+  #      org.springframework.ai.mcp: DEBUG
+  #      org.springframework.ai.model.tool: DEBUG
+  #      org.springframework.ai.chat: DEBUG
   datasource:
     url: jdbc:postgresql://192.168.129.130:5432/yu_ai_agent
     username: ai
@@ -6,12 +12,12 @@ spring:
   ai:
     mcp:
       client:
-        #        sse:
-        #          connections:
-        #            server1:
-        #              url: http://localhost:8127
-        stdio:
-          servers-configuration: classpath:mcp-servers-win.json
+        sse:
+          connections:
+            server1:
+              url: http://localhost:8127
+        #        stdio:
+        #          servers-configuration: classpath:mcp-servers-win.json
         toolcallback:
           enabled: true
     dashscope:
@@ -25,7 +31,6 @@ spring:
         model: llama3
     vectorstore:
       pgvector:
-        enabled: false
         index-type: HNSW
         distance-type: COSINE_DISTANCE
         dimensions: 1024
