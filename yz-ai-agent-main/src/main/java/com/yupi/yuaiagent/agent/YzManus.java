@@ -7,9 +7,9 @@ import org.springframework.ai.tool.ToolCallback;
 import org.springframework.stereotype.Component;
 
 @Component
-public class YuManus extends ToolCallAgent {  
+public class YzManus extends ToolCallAgent {
   
-    public YuManus(ToolCallback[] allTools, ChatModel dashscopeChatModel) {
+    public YzManus(ToolCallback[] allTools, ChatModel dashscopeChatModel) {
         super(allTools);  
         this.setName("yzManus");
         String SYSTEM_PROMPT = """  
