@@ -1,6 +1,6 @@
 ### Custom ###
-yz-ai-agent-main/src/main/resources/application-local.yml
-yz-ai-agent-main/src/main/resources/application-prod.yml
+yz-ai-agent-backend/src/main/resources/application-local.yml
+yz-ai-agent-backend/src/main/resources/application-prod.yml
 
 HELP.md
 target/
