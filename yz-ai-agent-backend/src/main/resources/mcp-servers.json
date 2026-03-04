@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "yz-image-search-mcp-server": {
+      "command": "java",
+      "args": [
+        "-Dspring.profile.active=stdio",
+        "-Dspring.ai.mcp.server.stdio=true",
+        "-Dspring.main.web-application-type=none",
+        "-Dlogging.pattern.console=",
+        "-Dspring.main.banner-mode=off",
+        "-jar",
+        "yz-image-search-mcp-server/target/yz-image-search-mcp-server-0.0.1-SNAPSHOT.jar"
+      ],
+      "env": {}
+    }
+  }
+}
