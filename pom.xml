@@ -9,11 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.yupi</groupId>
-    <artifactId>yu-ai-agent</artifactId>
+    <artifactId>yz-ai-agent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>yu-ai-agent</name>
-    <description>yu-ai-agent</description>
+    <name>yz-ai-agent</name>
+    <description>yz-ai-agent</description>
     <url/>
     <licenses>
         <license/>
@@ -22,8 +22,8 @@
         <developer/>
     </developers>
     <modules>
-        <module>yz-ai-agent-main</module>
-        <module>yu-image-search-mcp-server</module>
+        <module>yz-ai-agent-backend</module>
+        <module>yz-image-search-mcp-server</module>
     </modules>
     <scm>
         <connection/>
