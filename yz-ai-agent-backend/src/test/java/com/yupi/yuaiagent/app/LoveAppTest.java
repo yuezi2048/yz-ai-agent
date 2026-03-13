@@ -1,13 +1,16 @@
 package com.yupi.yuaiagent.app;
 
 import cn.hutool.core.lang.UUID;
-import com.yupi.yzaiagent.app.LoveApp;
+import com.yupi.yzaiagent.application.interaction.LoveApp;
+import com.yupi.yzaiagent.YzAiAgentApplication;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest(classes = YzAiAgentApplication.class)
+@Disabled("需要外部大模型 / RAG / MCP / 联网工具环境，默认跳过（integration test）")
 class LoveAppTest {
 
     @Resource

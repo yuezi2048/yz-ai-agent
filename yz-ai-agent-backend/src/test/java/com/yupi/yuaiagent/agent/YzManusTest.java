@@ -1,12 +1,15 @@
 package com.yupi.yuaiagent.agent;
 
-import com.yupi.yzaiagent.agent.YzManus;
+import com.yupi.yzaiagent.application.agent.YzManus;
+import com.yupi.yzaiagent.YzAiAgentApplication;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest(classes = YzAiAgentApplication.class)
+@Disabled("需要外部大模型与工具环境，默认跳过（integration test）")
 class YzManusTest {
   
     @Resource

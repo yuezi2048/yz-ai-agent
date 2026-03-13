@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: yz-ai-agent-test
+  profiles:
+    active: test
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+  ai:
+    # 单元测试不依赖 MCP 外部端点，避免上下文初始化阻塞/失败
+    mcp:
+      client:
+        enabled: false
+      toolcallback:
+        enabled: false
+    # 仅用于让 AutoConfiguration 能创建 Bean；测试不应真实调用外部大模型
+    dashscope:
+      api-key: test-dummy
+search-api:
+  api-key: test-dummy
+

@@ -1,12 +1,10 @@
 package com.yupi.yuaiagent.tools;
 
-import com.yupi.yzaiagent.tools.PDFGenerationTool;
+import com.yupi.yzaiagent.infrastructure.tool.PDFGenerationTool;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
 public class PDFGenerationToolTest {
 
     @Test

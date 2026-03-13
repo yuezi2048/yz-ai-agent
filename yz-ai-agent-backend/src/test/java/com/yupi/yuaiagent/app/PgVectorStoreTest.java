@@ -1,8 +1,10 @@
 package com.yupi.yuaiagent.app;
 
-import com.yupi.yzaiagent.rag.LoveAppDocumentLoader;
+import com.yupi.yzaiagent.YzAiAgentApplication;
+import com.yupi.yzaiagent.infrastructure.rag.LoveAppDocumentLoader;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.SearchRequest;
@@ -12,7 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 import java.util.Map;
 
-@SpringBootTest
+@SpringBootTest(classes = YzAiAgentApplication.class)
+@Disabled("需要本地 PGVector / 数据库环境，默认跳过（integration test）")
 public class PgVectorStoreTest {
 
     @Resource
