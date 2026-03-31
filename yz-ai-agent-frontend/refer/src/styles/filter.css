@@ -1,0 +1,371 @@
+/* ==========================================================================
+   全局筛选器样式 (Filter Styles)
+   参考页面：InvoiceQueryPage.vue
+   适用范围：统一所有业务页面的筛选栏布局、折叠动画及表单组件样式
+   ========================================================================== */
+
+/* --- 1. 通用按钮样式 (灰色按钮系列) --- */
+.btn-grey {
+  background: #f5f5f5;
+  border-color: #d9d9d9;
+  color: rgba(0, 0, 0, 0.65);
+}
+.btn-grey:hover, .btn-grey:focus {
+  background: #efefef;
+  border-color: #bfbfbf;
+  color: rgba(0, 0, 0, 0.75);
+}
+.btn-grey:active {
+  background: #e8e8e8;
+  border-color: #b3b3b3;
+}
+.btn-grey:disabled {
+  background: #f5f5f5;
+  border-color: #d9d9d9;
+  color: rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+}
+
+/* --- 2. 筛选容器与折叠逻辑 --- */
+/* 隐藏 Ant Design Collapse 默认页眉 */
+.filter-collapse :deep(.ant-collapse-header),
+.invoice-filter-collapse :deep(.ant-collapse-header) {
+  display: none;
+}
+
+/* 筛选操作区布局：包含展开/收起切换与查询按钮组 */
+.filter-actions,
+.invoice-filter-actions {
+  margin-top: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* 居中的展开/收起切换按钮 */
+.filter-collapse-toggle,
+.invoice-filter-collapse-toggle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #666;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+}
+.filter-collapse-toggle:hover,
+.invoice-filter-collapse-toggle:hover {
+  color: #1890ff;
+}
+
+/* 右侧按钮组 */
+.filter-actions-buttons,
+.invoice-filter-actions-buttons {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* --- 3. 筛选表单布局 (Row/Item) --- */
+.filter-form-container,
+.invoice-filter-form-container {
+  width: 100%;
+}
+
+/* 多行筛选时的行间距 */
+.filter-form-container :deep(.ant-row + .ant-row),
+.invoice-filter-form-container :deep(.ant-row + .ant-row) {
+  margin-top: 16px;
+}
+
+/* 表单项基础对齐设置 */
+.filter-form-item,
+.invoice-filter-form-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+/* 核心：强制所有筛选表单标题右对齐 */
+.filter-form-item :deep(.ant-form-item-label),
+.invoice-filter-form-item :deep(.ant-form-item-label),
+.filter-form-item :deep(.ant-form-item-label > label),
+.invoice-filter-form-item :deep(.ant-form-item-label > label) {
+  text-align: right !important;
+  justify-content: flex-end !important;
+  width: 96px !important; /* 统一标题宽度，确保对齐线一致 */
+  padding-right: 4px !important;
+  flex-shrink: 0;
+}
+
+/* 表单控件容器自适应 */
+.filter-form-item :deep(.ant-form-item-control),
+.invoice-filter-form-item :deep(.ant-form-item-control) {
+  flex: 1;
+  min-width: 0;
+  /* 确保自动填充框在控件容器中不收缩 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 表单控件包装器，确保自动填充框不收缩 */
+.filter-form-item :deep(.ant-form-item-control-input),
+.invoice-filter-form-item :deep(.ant-form-item-control-input) {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-form-item :deep(.ant-form-item-control-input-content),
+.invoice-filter-form-item :deep(.ant-form-item-control-input-content) {
+  min-width: 0;
+  flex: 1;
+  /* 对于包含自动填充框的情况，确保不收缩 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 自动填充框在控件内容中的特殊处理 - 防止收缩 */
+.filter-form-item :deep(.ant-form-item-control-input-content .customer-company-input),
+.filter-form-item :deep(.ant-form-item-control-input-content .salesperson-input),
+.filter-form-item :deep(.ant-form-item-control-input-content .issuer-input),
+.filter-form-item :deep(.ant-form-item-control-input-content .customer-name-input),
+.invoice-filter-form-item :deep(.ant-form-item-control-input-content .customer-company-input) {
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  flex-basis: auto !important;
+  width: 100% !important;
+  min-width: 150px !important;
+}
+
+/* --- 4. 常用输入组件扩展 --- */
+/* 自动填充控件 (AutoComplete) 防塌陷处理 */
+.filter-form-item :deep(.salesperson-input),
+.filter-form-item :deep(.issuer-input),
+.filter-form-item :deep(.customer-company-input),
+.filter-form-item :deep(.customer-name-input),
+.invoice-filter-form-item :deep(.customer-company-input) {
+  width: 100%;
+  min-width: 150px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+}
+
+/* 确保自动填充框的 Select 组件也不收缩 */
+.filter-form-item :deep(.customer-company-input .ant-select),
+.filter-form-item :deep(.salesperson-input .ant-select),
+.filter-form-item :deep(.issuer-input .ant-select),
+.filter-form-item :deep(.customer-name-input .ant-select),
+.invoice-filter-form-item :deep(.customer-company-input .ant-select) {
+  width: 100% !important;
+  min-width: 150px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+}
+
+.filter-form-item :deep(.customer-company-input .ant-select-selector),
+.filter-form-item :deep(.salesperson-input .ant-select-selector),
+.filter-form-item :deep(.issuer-input .ant-select-selector),
+.filter-form-item :deep(.customer-name-input .ant-select-selector),
+.invoice-filter-form-item :deep(.customer-company-input .ant-select-selector) {
+  min-width: 150px !important;
+  width: 100% !important;
+  flex-shrink: 0 !important;
+}
+
+.filter-form-item :deep(.customer-company-input .ant-input),
+.filter-form-item :deep(.salesperson-input .ant-input),
+.filter-form-item :deep(.issuer-input .ant-input),
+.filter-form-item :deep(.customer-name-input .ant-input),
+.invoice-filter-form-item :deep(.customer-company-input .ant-input) {
+  min-width: 150px !important;
+  width: 100% !important;
+  flex-shrink: 0 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 确保自动填充框内部的选择器输入框不收缩 */
+.filter-form-item :deep(.customer-company-input .ant-select-selection-search),
+.filter-form-item :deep(.salesperson-input .ant-select-selection-search),
+.filter-form-item :deep(.issuer-input .ant-select-selection-search),
+.filter-form-item :deep(.customer-name-input .ant-select-selection-search),
+.invoice-filter-form-item :deep(.customer-company-input .ant-select-selection-search) {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+.filter-form-item :deep(.customer-company-input .ant-select-selection-search-input),
+.filter-form-item :deep(.salesperson-input .ant-select-selection-search-input),
+.filter-form-item :deep(.issuer-input .ant-select-selection-search-input),
+.filter-form-item :deep(.customer-name-input .ant-select-selection-search-input),
+.invoice-filter-form-item :deep(.customer-company-input .ant-select-selection-search-input) {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* 基础文本输入框宽度 */
+.filter-text-input,
+.invoice-filter-input {
+  width: 100%;
+}
+
+/* 客户姓名特定宽度 */
+.customer-name-input {
+  width: 120px !important;
+  max-width: 120px;
+}
+
+/* 弹窗触发按钮 (Select Button) 模拟输入框样式 */
+.filter-select-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  padding: 4px 11px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.filter-select-button:hover {
+  border-color: #40a9ff;
+}
+.filter-selected-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+.filter-select-icon {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* 统计页公司名称多选按钮样式（与通用 Select Button 一致，并支持文字省略号） */
+.invoice-filter-select-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  padding: 4px 11px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.invoice-filter-select-button:hover {
+  border-color: #40a9ff;
+}
+.invoice-filter-selected-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+.invoice-filter-select-icon {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* --- 5. 复合组件 (日期/金额范围) --- */
+/* 日期选择组样式 (双DatePicker组合) */
+.date-range-wrapper,
+.invoice-date-range-wrapper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: #fff;
+  transition: all 0.3s;
+  width: 100%;
+}
+.date-range-wrapper:hover,
+.invoice-date-range-wrapper:hover {
+  border-color: #40a9ff;
+}
+.date-range-wrapper:focus-within,
+.invoice-date-range-wrapper:focus-within {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.date-range-wrapper :deep(.ant-picker),
+.invoice-date-range-wrapper :deep(.ant-picker) {
+  flex: 1;
+  border: none;
+  box-shadow: none;
+}
+
+/* 日期范围选择器（RangePicker）在 wrapper 中的样式 */
+.date-range-wrapper :deep(.ant-picker-range) {
+  width: 100%;
+  border: none;
+  box-shadow: none;
+}
+
+/* 日期/金额分隔符 */
+.date-separator,
+.invoice-date-separator,
+.amount-separator-text {
+  color: #999;
+  padding: 0 8px;
+  font-size: 14px;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+/* 金额输入组样式 */
+.amount-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.amount-input-left,
+.amount-input-right {
+  flex: 1;
+  min-width: 0;
+}
+
+/* --- 6. 历史兼容样式 (Legacy Support) --- */
+.amount-range-wrapper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  width: 100%;
+}
+.amount-range-wrapper :deep(.ant-input-number) {
+  flex: 1;
+  border: none !important;
+  box-shadow: none !important;
+}
+.amount-range-input :deep(.ant-input-number-input) {
+  width: 100% !important;
+}
+
+/* --- 7. 筛选框 Card Body Padding 设置 --- */
+/* 筛选框的 card-body padding 设置为：上 8px，右 24px，下 12px，左 16px */
+.filter-container .ant-card-body {
+  padding: 12px 24px 12px 16px !important;
+}
+
+:deep(.filter-container .ant-card-body) {
+  padding: 12px 24px 12px 16px !important;
+}

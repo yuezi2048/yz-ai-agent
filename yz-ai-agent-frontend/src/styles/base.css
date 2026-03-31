@@ -1,8 +1,8 @@
 :root {
-  font-family: 'HarmonyOS Sans', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: Inter, 'SF Pro Display', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.5;
-  color: #f4f7ff;
-  background-color: #0d1117;
+  color: #ffffff;
+  background-color: #1e1e1e;
 }
 
 * {
@@ -12,7 +12,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #0d1117;
+  background-color: #1e1e1e;
 }
 
 button {

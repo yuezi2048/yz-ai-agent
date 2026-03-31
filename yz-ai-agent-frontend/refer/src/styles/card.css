@@ -1,0 +1,39 @@
+/* ============================================
+   Ant Design Card 通用样式
+   统一设置所有 ant-card 组件的边距为 0
+   ============================================ */
+
+/* 卡片容器边距 */
+.ant-card {
+  margin: 0;
+  padding: 0;
+}
+
+/* 带边框的卡片容器边距 */
+.ant-card-bordered {
+  margin: 0;
+  padding: 0;
+}
+
+/* 卡片内容区域边距 */
+.ant-card-body {
+  padding: 0;
+  margin: 0;
+}
+
+/* 确保所有页面中的 ant-card 都应用此样式 */
+:deep(.ant-card) {
+  margin: 0;
+  padding: 0;
+}
+
+:deep(.ant-card-bordered) {
+  margin: 0;
+  padding: 0;
+}
+
+:deep(.ant-card-body) {
+  padding: 0;
+  margin: 0;
+}
+

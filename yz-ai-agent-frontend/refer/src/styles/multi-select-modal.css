@@ -1,0 +1,114 @@
+/* 多选模态框公共样式 */
+
+/* 模态框标题左对齐 */
+.multi-select-modal .ant-modal-header {
+  text-align: left;
+}
+
+.multi-select-modal .ant-modal-title {
+  text-align: left;
+  width: 100%;
+}
+
+/* 表格样式 */
+.multi-select-modal .select-table {
+  margin: 0;
+  margin-top: 16px !important;
+}
+
+/* 标题行样式 - 使用更强的选择器覆盖 Ant Design 默认样式 */
+.multi-select-modal .ant-table-thead > tr > th {
+  border-bottom: none !important;
+  background: transparent !important;
+  padding: 6px 16px !important;
+}
+
+/* 标题行第一列（选中状态）居中 */
+.multi-select-modal .ant-table-thead > tr > th:first-child {
+  text-align: center !important;
+}
+
+/* 标题行第二列（文字）左对齐，确保与内容行对齐 */
+.multi-select-modal .ant-table-thead > tr > th:last-child {
+  text-align: left !important;
+  padding-left: 16px !important;
+}
+
+/* 内容行第二列左对齐，确保与标题行对齐 */
+.multi-select-modal .select-table .ant-table-tbody > tr > td:last-child {
+  padding-left: 16px !important;
+}
+
+.multi-select-modal .select-table .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #f5f5f5;
+  padding: 6px 16px;
+}
+
+.multi-select-modal .select-table .ant-table-tbody > tr:last-child > td {
+  border-bottom: none;
+}
+
+.multi-select-modal .select-table .ant-table-tbody > tr:hover > td {
+  background: #fafafa;
+}
+
+/* 表头单元格样式 */
+.multi-select-modal .table-header-cell {
+  font-weight: 500;
+}
+
+.multi-select-modal .table-header-cell-center {
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.multi-select-modal .table-header-cell-left {
+  text-align: left !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100%;
+}
+
+/* 表格内容单元格样式 */
+.multi-select-modal .table-body-cell-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.multi-select-modal .table-body-cell-content {
+  text-align: left;
+}
+
+/* 底部操作栏样式 */
+.multi-select-modal .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.multi-select-modal .footer-right {
+  flex-shrink: 0;
+}
+
+/* 确保复选框使用标准蓝色 */
+.multi-select-modal .select-table .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.multi-select-modal .select-table .ant-checkbox-indeterminate .ant-checkbox-inner {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.multi-select-modal .select-table .ant-checkbox:hover .ant-checkbox-inner {
+  border-color: #1890ff;
+}
+
+.multi-select-modal .select-table .ant-checkbox-wrapper:hover .ant-checkbox-inner {
+  border-color: #1890ff;
+}
+

@@ -1,11 +1,11 @@
 # YU AI Agent Frontend（Vue3 + Vite）
 
-基于 Vue3 + Vite 的前端项目，用于对接后端的 AI 恋爱大师与 AI 超级智能体两个 SSE 流式对话接口。
+基于 Vue3 + Vite 的前端项目，用于对接后端的 AI 凌语 Agent 智能问答系统与 AI 超级智能体两个 SSE 流式对话接口。
 
 ## 功能概览
 
-- **主页**：在 AI 恋爱大师 / AI 超级智能体之间切换。
-- **AI 恋爱大师页面**：调用 `GET /ai/love_app/chat/sse`，进入页面自动生成 `chatId`，使用 SSE 流式展示对话（打字机效果）。
+- **主页**：在 AI 凌语 Agent 智能问答系统 / AI 超级智能体之间切换。
+- **AI 凌语 Agent 智能问答系统页面**：调用 `GET /ai/love_app/chat/sse`，进入页面自动生成 `chatId`，使用 SSE 流式展示对话（打字机效果）。
 - **AI 超级智能体页面**：调用 `GET /ai/manus/chat`，同样使用 SSE 流式展示对话。
 - **统一聊天体验组件**：气泡式聊天 UI，用户在右侧，AI 在左侧，支持会话重置、停止生成、滚动到底部等。
 
@@ -38,7 +38,7 @@ npm run dev
 - `src/components/ChatExperience.vue`：通用聊天体验组件。
 - `src/composables/useChatStream.ts`：SSE 流式对话逻辑与打字机效果。
 - `src/pages/HomePage.vue`：应用选择主页。
-- `src/pages/LoveMasterPage.vue`：AI 恋爱大师页面。
+- `src/pages/LoveMasterPage.vue`：AI 凌语 Agent 智能问答系统页面。
 - `src/pages/SuperManusPage.vue`：AI 超级智能体页面。
 
 ## 构建与预览

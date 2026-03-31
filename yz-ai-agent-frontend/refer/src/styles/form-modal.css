@@ -1,0 +1,127 @@
+/* ============================================
+   表单模态框统一样式
+   用于所有新增/编辑表单模态框
+   ============================================ */
+
+/* 表单项标签样式 */
+.form-modal :deep(.ant-form-item-label) {
+  text-align: right;
+  padding-right: 12px;
+  padding-left: 12px !important; /* 为星号预留空间 */
+  overflow: visible !important; /* 确保星号不被裁剪 */
+  position: relative; /* 为绝对定位的星号提供定位上下文 */
+}
+
+/* 表单项控件样式 */
+.form-modal :deep(.ant-form-item-control) {
+  text-align: left;
+}
+
+/* 表单行样式 */
+.form-modal :deep(.ant-row) {
+  margin-bottom: 0;
+}
+
+/* 表单项间距 */
+.form-modal :deep(.ant-form-item) {
+  margin-bottom: 16px;
+}
+
+/* 如果直接在模态框中使用，也可以这样 */
+:deep(.ant-form-item-label) {
+  text-align: right;
+  padding-right: 12px;
+  padding-left: 12px !important; /* 为星号预留空间 */
+  overflow: visible !important; /* 确保星号不被裁剪 */
+  position: relative; /* 为绝对定位的星号提供定位上下文 */
+}
+
+:deep(.ant-form-item-control) {
+  text-align: left;
+}
+
+:deep(.ant-row) {
+  margin-bottom: 0;
+}
+
+:deep(.ant-form-item) {
+  margin-bottom: 16px;
+}
+
+/* ============================================
+   修复必填项星号导致的对齐问题
+   让星号使用绝对定位，不占据文档流空间
+   确保必填项和非必填项的标签文字能够右对齐
+   
+   解决方案：
+   1. 让 label 使用相对定位，使星号可绝对定位
+   2. 让星号的 ::before 使用绝对定位，悬挂在文字左侧
+   3. 星号不占据文档流空间，不影响文字的右对齐
+   4. 为 label 容器添加足够的 padding-left，确保星号有显示空间（已在上面设置）
+   ============================================ */
+
+/* 为所有 label 元素设置相对定位，使星号可绝对定位 */
+:deep(.ant-form-item-label > label) {
+  position: relative;
+}
+
+/* 必填项星号使用绝对定位，悬挂在文字左侧，不占据文档流空间 */
+/* 针对 label 元素上的必填标记 - 使用更通用的选择器 */
+:deep(.ant-form-item-label > label.ant-form-item-required::before),
+:deep(.ant-form-item-required::before),
+:deep(.ant-form-item-label.ant-form-item-required::before) {
+  position: absolute !important;
+  left: -10px !important; /* 星号悬挂到文字左侧，不占据 label 宽度 */
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin-right: 0 !important;
+  margin-inline-end: 0 !important;
+  display: inline-block !important; /* 确保星号显示 */
+  z-index: 1 !important; /* 确保星号在最上层 */
+}
+
+/* 确保必填项的 label 有相对定位 */
+:deep(.ant-form-item-required > label),
+:deep(.ant-form-item-label.ant-form-item-required > label),
+:deep(.ant-form-item-label > label.ant-form-item-required) {
+  position: relative;
+}
+
+/* 兼容有冒号的情况，避免多余间距导致抖动 */
+:deep(.ant-form-item-label > label::after) {
+  margin: 0 0 0 4px;
+}
+
+/* ============================================
+   模态框标题左对齐
+   确保所有表单模态框的标题左对齐，与销项发票管理页面保持一致
+   ============================================ */
+
+:deep(.ant-modal-header) {
+  text-align: left;
+}
+
+:deep(.ant-modal-title) {
+  text-align: left;
+  width: 100%;
+}
+
+/* ============================================
+   表单分区样式（form-section）
+   用于员工信息编辑等复杂表单的分区显示
+   ============================================ */
+
+.form-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.section-divider {
+  color: #1890ff;
+  margin-right: 8px;
+}
