@@ -1,6 +1,7 @@
 ### Custom ###
 yz-ai-agent-backend/src/main/resources/application-local.yml
 yz-ai-agent-backend/src/main/resources/application-prod.yml
+yz-image-search-mcp-server/src/main/resources/application-local.yml
 
 HELP.md
 target/
